@@ -27,6 +27,12 @@ namespace Spativy
             Console.WriteLine();
         }
 
+        public void SlaOver(Nummer nummer)
+        {
+            SpeelNummer(nummer);
+            Console.WriteLine("Speelt opnieuw: " + nummer.Titel + " Van " + nummer.Artiest + " Genre: " + nummer.Genre + " druk op 2 om het nummer te stoppen.");
+        }
+
         public void InputGever(Nummer nummer)
         {
             Console.WriteLine("Welkom bij Spativy ");
