@@ -1,0 +1,15 @@
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.AssemblyInfoInputs.cache
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.AssemblyInfo.cs
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.csproj.CoreCompileInputs.cache
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.sourcelink.json
+C:\Users\aiden\source\repos\Spativy\Spativy\bin\Debug\net10.0\Spativy.exe
+C:\Users\aiden\source\repos\Spativy\Spativy\bin\Debug\net10.0\Spativy.deps.json
+C:\Users\aiden\source\repos\Spativy\Spativy\bin\Debug\net10.0\Spativy.runtimeconfig.json
+C:\Users\aiden\source\repos\Spativy\Spativy\bin\Debug\net10.0\Spativy.dll
+C:\Users\aiden\source\repos\Spativy\Spativy\bin\Debug\net10.0\Spativy.pdb
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.dll
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\refint\Spativy.dll
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.pdb
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\Spativy.genruntimeconfig.cache
+C:\Users\aiden\source\repos\Spativy\Spativy\obj\Debug\net10.0\ref\Spativy.dll
