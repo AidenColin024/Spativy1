@@ -11,8 +11,14 @@ namespace Spativy
 
         public void SpeelNummer(Nummer nummer)
         {
-            Console.WriteLine("Speelt: " + nummer.Titel + " Van " + nummer.Artiest + " Genre: " + nummer.Genre);
+            Console.WriteLine("Speelt: " + nummer.Titel + " Van " + nummer.Artiest + " Genre: " + nummer.Genre + " druk op 2 om het nummer te stoppen.");
             Console.WriteLine();
+            String input = Console.ReadLine();
+
+            if (input == "2")
+            {
+                StopNummer(nummer);
+            }
         }
 
         public void StopNummer (Nummer nummer)
@@ -27,6 +33,12 @@ namespace Spativy
             Console.WriteLine("Druk op 1 om een nummer af te spelen. Druk op 2 om een nummer te stoppen");
             String input = Console.ReadLine();
 
+            while(input != "1" && input != "2" )
+            {
+                Console.WriteLine("druk op een geldige toets");
+                input = Console.ReadLine();
+            }
+
             if (input == "1")
             {
                 SpeelNummer(nummer);
@@ -34,10 +46,6 @@ namespace Spativy
             else if (input == "2")
             {
                 StopNummer(nummer);
-            }
-            else
-            {
-                Console.WriteLine("druk op een geldige toets");
             }
         }
     }
