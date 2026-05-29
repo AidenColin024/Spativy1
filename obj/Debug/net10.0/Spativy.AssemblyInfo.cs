@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Spativy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d342b6344d013e96820bd23129305d43d78f262")]
 [assembly: System.Reflection.AssemblyProductAttribute("Spativy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Spativy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
