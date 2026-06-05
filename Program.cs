@@ -12,9 +12,6 @@ Album album = new Album(
 List<Album> albums = new List<Album>();
 albums.Add(album);
 
-List<Artiest> artiesten = new List<Artiest>();
-artiesten.Add(new Artiest("Kendrick Lamar"));
-
 Client client = new Client();
 
-client.InputGever(nummer1, albums, artiesten);
+client.InputGever(nummer1, albums);
