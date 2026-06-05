@@ -13,7 +13,7 @@ namespace Spativy
             Console.WriteLine("Speelt: " + nummer.Titel +
                               " Van " + nummer.Artiest +
                               " Genre: " + nummer.Genre +
-                              " druk op 2 om het nummer te stoppen.");
+                              " druk op 2 om het nummer te stoppen. Druk op 3 om het nummer over te slaan.");
             Console.WriteLine();
 
             String input = Console.ReadLine();
@@ -21,6 +21,10 @@ namespace Spativy
             if (input == "2")
             {
                 StopNummer(nummer);
+            }
+            else if (input == "3")
+            {
+                SlaOver(nummer);
             }
         }
 
