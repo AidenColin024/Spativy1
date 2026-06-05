@@ -1,22 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Spativy
 {
-    internal class Nummer
+    internal class Album
     {
         public String Titel { get; set; }
         public String Artiest { get; set; }
-        public String Genre { get; set; }
+        public List<Nummer> Nummers { get; set; }
 
-
-        public Nummer(String titel, String artiest, String genre)
+        public Album(String titel, String artiest, List<Nummer> nummers)
         {
             Titel = titel;
             Artiest = artiest;
-            Genre = genre;
-
+            Nummers = nummers;
         }
     }
 }
