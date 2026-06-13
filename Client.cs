@@ -55,21 +55,22 @@ namespace Spativy
                 Console.WriteLine("Druk op 6 om artiesten in te zien.");
                 Console.WriteLine("Druk op 7 om een afspeelijst aan te maken.");
                 Console.WriteLine("Druk op 8 om je afspeelijsten te zien.");
+                Console.WriteLine("Druk op 9 om een nummer aan een lijst toe te voegen.");
                 Console.WriteLine("Druk op 0 om af te sluiten.");
 
                 input = Console.ReadLine();
 
                 if (input == "1")
                 {
-                    SpeelNummer(nummer);
+                    SpeelNummer(nummers[0]);
                 }
                 else if (input == "2")
                 {
-                    StopNummer(nummer);
+                    StopNummer(nummers[0]);
                 }
                 else if (input == "3")
                 {
-                    SlaOver(nummer);
+                    SlaOver(nummers[0]);
                 }
                 else if (input == "4")
                 {
@@ -100,6 +101,10 @@ namespace Spativy
                 else if (input == "8")
                 {
                     AfspeelijstInzien(afspeelijst);
+                }
+                else if (input == "9")
+                {
+                    NummerToevoegen(afspeelijst, nummers);
                 }
             }
         }
@@ -183,13 +188,62 @@ namespace Spativy
             afspeellijsten.Add(nieuweAfspeelijst);
         }
 
-        public void AfspeelijstInzien(List<Afspeelijst> afspeellijsten)
+        public void AfspeelijstInzien(List<Afspeelijst> afspeellijsten, List<Nummer> nummers)
         {
             foreach (Afspeelijst afspeelijst in afspeellijsten)
             {
                 Console.WriteLine("Afspeelijsten:\n " + afspeelijst.TitelAfspeelijst + " Van " + afspeelijst.NaamGebruiker);
+
+                foreach (Nummer nummer in afspeelijst.Nummers)
+                {
+                    Console.WriteLine("- " + nummer.Titel);
+                }
+
+                Console.WriteLine();
             }
             Console.WriteLine();
+        }
+
+        public void NummerToevoegen(List<Afspeelijst> afspeellijsten,List<Nummer> nummers)
+        {
+            if (afspeellijsten.Count == 0)
+            {
+                Console.WriteLine("Er is geen lijst");
+                return;
+            }
+
+            Console.WriteLine("Kies een lijst om een nummer aan toe te voegen.");
+
+            foreach (Afspeelijst afspeellijst in afspeellijsten)
+            {
+                Console.WriteLine(afspeellijst.TitelAfspeelijst);
+            }
+
+            string gekozenLijst = Console.ReadLine();
+
+            foreach (Afspeelijst afspeellijst in afspeellijsten)
+            {
+                if (afspeellijst.TitelAfspeelijst == gekozenLijst)
+                {
+                    Console.WriteLine("Kies een nummer:");
+
+                    foreach (Nummer nummer in nummers)
+                    {
+                        Console.WriteLine(nummer.Titel);
+                    }
+
+                    string gekozenNummer = Console.ReadLine();
+
+                    foreach (Nummer nummer in nummers)
+                    {
+                        if (nummer.Titel == gekozenNummer)
+                        {
+                            afspeellijst.Nummers.Add(nummer);
+                            Console.WriteLine("Nummer toegevoegd.");
+                        }
+                    }
+                }
+            }
         }
     }
 }
