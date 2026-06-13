@@ -188,7 +188,7 @@ namespace Spativy
             afspeellijsten.Add(nieuweAfspeelijst);
         }
 
-        public void AfspeelijstInzien(List<Afspeelijst> afspeellijsten, List<Nummer> nummers)
+        public void AfspeelijstInzien(List<Afspeelijst> afspeellijsten)
         {
             foreach (Afspeelijst afspeelijst in afspeellijsten)
             {
