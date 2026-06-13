@@ -4,6 +4,11 @@ using System.Collections.Generic;
 Nummer nummer1 = new Nummer("HUMBLE.", "Kendrick Lamar", "Rap");
 Nummer nummer2 = new Nummer("DNA.", "Kendrick Lamar", "Rap");
 
+List<Nummer> nummers = new List<Nummer>();
+nummers.Add(nummer1);
+nummers.Add(nummer2);
+
+
 
 Afspeelijst afspeelijst = new Afspeelijst();
 
@@ -22,4 +27,4 @@ List<Afspeelijst> afspeellijsten = new List<Afspeelijst>();
 
 Client client = new Client();
 
-client.InputGever(nummer1, albums, artiesten, afspeellijsten);
+client.InputGever(nummers, albums, artiesten, afspeellijsten);

@@ -40,7 +40,7 @@ namespace Spativy
         }
 
 
-        public void InputGever(Nummer nummer, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst)
+        public void InputGever(List<Nummer> nummers, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst)
         {
             String input = "";
 
