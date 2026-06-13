@@ -46,17 +46,18 @@ namespace Spativy
 
             while (input != "0")
             {
-                Console.WriteLine("Welkom bij Spativy ");
-                Console.WriteLine("Druk op 1 om een nummer af te spelen.");
-                Console.WriteLine("Druk op 2 om een nummer te stoppen.");
-                Console.WriteLine("Druk op 3 om een nummer over te slaan.");
-                Console.WriteLine("Druk op 4 om albums in te zien.");
-                Console.WriteLine("Druk op 5 om een album af te spelen.");
-                Console.WriteLine("Druk op 6 om artiesten in te zien.");
-                Console.WriteLine("Druk op 7 om een afspeelijst aan te maken.");
-                Console.WriteLine("Druk op 8 om je afspeelijsten te zien.");
-                Console.WriteLine("Druk op 9 om een nummer aan een lijst toe te voegen.");
-                Console.WriteLine("Druk op 0 om af te sluiten.");
+                Console.WriteLine("Welkom bij Spativy\n ");
+                Console.WriteLine("Druk op 1 om een nummer af te spelen.\n");
+                Console.WriteLine("Druk op 2 om een nummer te stoppen.\n");
+                Console.WriteLine("Druk op 3 om een nummer over te slaan.\n");
+                Console.WriteLine("Druk op 4 om albums in te zien.\n");
+                Console.WriteLine("Druk op 5 om een album af te spelen.\n");
+                Console.WriteLine("Druk op 6 om artiesten in te zien.\n");
+                Console.WriteLine("Druk op 7 om een afspeelijst aan te maken.\n");
+                Console.WriteLine("Druk op 8 om je afspeelijsten te zien.\n");
+                Console.WriteLine("Druk op 9 om een nummer aan een lijst toe te voegen.\n");
+                Console.WriteLine("Druk op 10 om een nummer te verwijderen.\n");
+                Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
 
@@ -105,6 +106,10 @@ namespace Spativy
                 else if (input == "9")
                 {
                     NummerToevoegen(afspeelijst, nummers);
+                }
+                else if (input == "10")
+                {
+                    NummerVerwijderen(afspeelijst, nummers);
                 }
             }
         }
@@ -240,6 +245,41 @@ namespace Spativy
                         {
                             afspeellijst.Nummers.Add(nummer);
                             Console.WriteLine("Nummer toegevoegd.");
+                        }
+                    }
+                }
+            }
+        }
+
+        public void NummerVerwijderen(List<Afspeelijst> afspeellijsten, List<Nummer> nummers)
+        {
+            Console.WriteLine("Kies een lijst");
+            foreach(Afspeelijst afspeellijst in afspeellijsten)
+            {
+                Console.WriteLine(afspeellijst.TitelAfspeelijst);
+            }
+
+            string gekozenLijst = Console.ReadLine();
+
+            foreach(Afspeelijst afspeelijst in afspeellijsten)
+            {
+                if(afspeelijst.TitelAfspeelijst == gekozenLijst)
+                {
+                    Console.WriteLine("Kies een nummer om te verwijderen");
+
+                    foreach(Nummer nummer in nummers)
+                    {
+                        Console.WriteLine(nummer.Titel);
+                    }
+
+                    string gekozenNummer = Console.ReadLine();
+
+                    foreach(Nummer nummer in nummers)
+                    {
+                        if(nummer.Titel == gekozenNummer)
+                        {
+                            afspeelijst.Nummers.Remove(nummer);
+                            Console.WriteLine("Het nummer is verwijderd");
                         }
                     }
                 }
