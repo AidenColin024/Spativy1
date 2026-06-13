@@ -40,7 +40,7 @@ namespace Spativy
         }
 
 
-        public void InputGever(Nummer nummer, List<Album> albums, List<Artiest> artiesten)
+        public void InputGever(Nummer nummer, List<Album> albums, List<Artiest> artiesten, Afspeelijst afspeelijst)
         {
             Console.WriteLine("Welkom bij Spativy ");
             Console.WriteLine("Druk op 1 om een nummer af te spelen.");
@@ -49,6 +49,7 @@ namespace Spativy
             Console.WriteLine("Druk op 4 om albums in te zien.");
             Console.WriteLine("Druk op 5 om een album af te spelen.");
             Console.WriteLine("Druk op 6 om artiesten in te zien.");
+            Console.WriteLine("Druk op 7 om een afspeelijst aan te maken.");
 
             String input = Console.ReadLine();
 
@@ -57,7 +58,8 @@ namespace Spativy
                    input != "3" &&
                    input != "4" &&
                    input != "5" &&
-                   input != "6")
+                   input != "6" &&
+                   input != "7")
             {
                 Console.WriteLine("druk op een geldige toets");
                 input = Console.ReadLine();
@@ -98,6 +100,10 @@ namespace Spativy
                 }
 
                 Console.ReadLine();
+            }
+            else if (input == "7")
+            {
+                AfspeelijstAanmaken(afspeelijst);
             }
         }
 
@@ -168,6 +174,17 @@ namespace Spativy
 
             Console.WriteLine();
             Console.WriteLine("Album afgelopen.");
+        }
+
+        public void AfspeelijstAanmaken(Afspeelijst afspeelijst)
+        {
+            Console.WriteLine("Maak een titel voor je afspeelijst.");
+           String titelafspeelijst = Console.ReadLine();
+            Console.WriteLine("Van wie is deze lijst?");
+            String naamgebruiker = Console.ReadLine();
+            Console.WriteLine("Je afspeelijst: "+ titelafspeelijst +" van "+ naamgebruiker + " is aangemaakt.");
+
+            
         }
     }
 }

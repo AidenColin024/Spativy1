@@ -4,6 +4,9 @@ using System.Collections.Generic;
 Nummer nummer1 = new Nummer("HUMBLE.", "Kendrick Lamar", "Rap");
 Nummer nummer2 = new Nummer("DNA.", "Kendrick Lamar", "Rap");
 
+
+Afspeelijst afspeelijst = new Afspeelijst();
+
 Album album = new Album(
    "DAMN.",
    "Kendrick Lamar",
@@ -17,4 +20,4 @@ artiesten.Add(new Artiest("Kendrick Lamar"));
 
 Client client = new Client();
 
-client.InputGever(nummer1, albums, artiesten);
+client.InputGever(nummer1, albums, artiesten, afspeelijst);
