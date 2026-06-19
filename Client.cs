@@ -57,6 +57,7 @@ namespace Spativy
                 Console.WriteLine("Druk op 8 om je afspeelijsten te zien.\n");
                 Console.WriteLine("Druk op 9 om een nummer aan een lijst toe te voegen.\n");
                 Console.WriteLine("Druk op 10 om een nummer te verwijderen.\n");
+                Console.WriteLine("Druk op 11 om een afspeellijst af te spelen.\n");
                 Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
@@ -110,6 +111,17 @@ namespace Spativy
                 else if (input == "10")
                 {
                     NummerVerwijderen(afspeelijst, nummers);
+                }
+                else if (input == "11")
+                {
+                    if (afspeelijst.Count > 0)
+                    {
+                        SpeelAfspeelijst(afspeelijst[0]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Er zijn geen afspeellijsten.");
+                    }
                 }
             }
         }
@@ -284,6 +296,43 @@ namespace Spativy
                     }
                 }
             }
+        }
+        public void SpeelAfspeelijst(Afspeelijst afspeelijst)
+        {
+            if (afspeelijst.Nummers.Count == 0)
+            {
+                Console.WriteLine("De afspeellijst is leeg.");
+                return;
+            }
+
+            Console.WriteLine("Afspeellijst gestart: " + afspeelijst.TitelAfspeelijst);
+            Console.WriteLine();
+
+            foreach (Nummer nummer in afspeelijst.Nummers)
+            {
+                Console.WriteLine("Speelt: " + nummer.Titel +
+                                  " Van " + nummer.Artiest +
+                                  " Genre: " + nummer.Genre);
+
+                Console.WriteLine("Druk op 2 om te stoppen.");
+                Console.WriteLine("Druk op 3 om over te slaan.");
+
+                String input = Console.ReadLine();
+
+                if (input == "2")
+                {
+                    Console.WriteLine("Afspeellijst gestopt.");
+                    return;
+                }
+
+                if (input == "3")
+                {
+                    continue;
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Afspeellijst afgelopen.");
         }
     }
 }

@@ -12,10 +12,6 @@ nummers.Add(nummer2);
 nummers.Add(nummer3);
 nummers.Add(nummer4);
 
-
-
-Afspeelijst afspeelijst = new Afspeelijst();
-
 Album album = new Album(
    "DAMN.",
    "Kendrick Lamar",
@@ -24,17 +20,25 @@ Album album = new Album(
 Album album2 = new Album(
     "Graduation",
     "Kanye West",
-    new List<Nummer> { nummer3, nummer4}
-    );
+    new List<Nummer> { nummer3, nummer4 }
+);
+
 List<Album> albums = new List<Album>();
 albums.Add(album);
 albums.Add(album2);
 
 List<Artiest> artiesten = new List<Artiest>();
-artiesten.Add(new Artiest("Kendrick Lamar\n"));
-artiesten.Add(new Artiest("Kanye West\n"));
+artiesten.Add(new Artiest("Kendrick Lamar"));
+artiesten.Add(new Artiest("Kanye West"));
+
+Afspeelijst afspeelijst1 = new Afspeelijst(
+    "Favorieten",
+    "Hoofdgebruiker",
+    new List<Nummer> { nummer1, nummer3 }
+);
 
 List<Afspeelijst> afspeellijsten = new List<Afspeelijst>();
+afspeellijsten.Add(afspeelijst1);
 
 Client client = new Client();
 
