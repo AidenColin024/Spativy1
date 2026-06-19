@@ -116,7 +116,7 @@ namespace Spativy
                 {
                     if (afspeelijst.Count > 0)
                     {
-                        SpeelAfspeelijst(afspeelijst[0]);
+                        SpeelAfspeelijst(afspeelijst);
                     }
                     else
                     {
@@ -221,7 +221,7 @@ namespace Spativy
             Console.WriteLine();
         }
 
-        public void NummerToevoegen(List<Afspeelijst> afspeellijsten,List<Nummer> nummers)
+        public void NummerToevoegen(List<Afspeelijst> afspeellijsten, List<Nummer> nummers)
         {
             if (afspeellijsten.Count == 0)
             {
@@ -229,86 +229,92 @@ namespace Spativy
                 return;
             }
 
-            Console.WriteLine("Kies een lijst om een nummer aan toe te voegen.");
+            Console.WriteLine("Kies een lijst om een nummer aan toe te voegen:");
 
-            foreach (Afspeelijst afspeellijst in afspeellijsten)
+            for (int i = 0; i < afspeellijsten.Count; i++)
             {
-                Console.WriteLine(afspeellijst.TitelAfspeelijst);
+                Console.WriteLine((i + 1) + ". " + afspeellijsten[i].TitelAfspeelijst);
             }
 
-            string gekozenLijst = Console.ReadLine();
+            int keuzeLijst = int.Parse(Console.ReadLine());
 
-            foreach (Afspeelijst afspeellijst in afspeellijsten)
+            Afspeelijst gekozenLijst = afspeellijsten[keuzeLijst - 1];
+
+            Console.WriteLine("Kies een nummer:");
+
+            for (int i = 0; i < nummers.Count; i++)
             {
-                if (afspeellijst.TitelAfspeelijst == gekozenLijst)
-                {
-                    Console.WriteLine("Kies een nummer:");
-
-                    foreach (Nummer nummer in nummers)
-                    {
-                        Console.WriteLine(nummer.Titel);
-                    }
-
-                    string gekozenNummer = Console.ReadLine();
-
-                    foreach (Nummer nummer in nummers)
-                    {
-                        if (nummer.Titel == gekozenNummer)
-                        {
-                            afspeellijst.Nummers.Add(nummer);
-                            Console.WriteLine("Nummer toegevoegd.");
-                        }
-                    }
-                }
+                Console.WriteLine((i + 1) + ". " + nummers[i].Titel);
             }
+
+            int keuzeNummer = int.Parse(Console.ReadLine());
+
+            Nummer gekozenNummer = nummers[keuzeNummer - 1];
+
+            gekozenLijst.Nummers.Add(gekozenNummer);
+
+            Console.WriteLine("Nummer toegevoegd.");
         }
 
         public void NummerVerwijderen(List<Afspeelijst> afspeellijsten, List<Nummer> nummers)
         {
-            Console.WriteLine("Kies een lijst");
-            foreach(Afspeelijst afspeellijst in afspeellijsten)
+            if (afspeellijsten.Count == 0)
             {
-                Console.WriteLine(afspeellijst.TitelAfspeelijst);
+                Console.WriteLine("Er zijn geen afspeellijsten.");
+                return;
             }
 
-            string gekozenLijst = Console.ReadLine();
+            Console.WriteLine("Kies een lijst:");
 
-            foreach(Afspeelijst afspeelijst in afspeellijsten)
+            for (int i = 0; i < afspeellijsten.Count; i++)
             {
-                if(afspeelijst.TitelAfspeelijst == gekozenLijst)
-                {
-                    Console.WriteLine("Kies een nummer om te verwijderen");
-
-                    foreach(Nummer nummer in nummers)
-                    {
-                        Console.WriteLine(nummer.Titel);
-                    }
-
-                    string gekozenNummer = Console.ReadLine();
-
-                    foreach(Nummer nummer in nummers)
-                    {
-                        if(nummer.Titel == gekozenNummer)
-                        {
-                            afspeelijst.Nummers.Remove(nummer);
-                            Console.WriteLine("Het nummer is verwijderd");
-                        }
-                    }
-                }
+                Console.WriteLine((i + 1) + ". " + afspeellijsten[i].TitelAfspeelijst);
             }
+
+            int keuzeLijst = int.Parse(Console.ReadLine());
+
+            Afspeelijst gekozenLijst = afspeellijsten[keuzeLijst - 1];
+
+            if (gekozenLijst.Nummers.Count == 0)
+            {
+                Console.WriteLine("Deze afspeellijst bevat geen nummers.");
+                return;
+            }
+
+            Console.WriteLine("Kies een nummer om te verwijderen:");
+
+            for (int i = 0; i < gekozenLijst.Nummers.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + gekozenLijst.Nummers[i].Titel);
+            }
+
+            int keuzeNummer = int.Parse(Console.ReadLine());
+
+            Nummer gekozenNummer = gekozenLijst.Nummers[keuzeNummer - 1];
+
+            gekozenLijst.Nummers.Remove(gekozenNummer);
+
+            Console.WriteLine("Het nummer is verwijderd.");
         }
-        public void SpeelAfspeelijst(Afspeelijst afspeelijst)
+        public void SpeelAfspeelijst(List<Afspeelijst> afspeellijsten)
         {
-            if (afspeelijst.Nummers.Count == 0)
+            Console.WriteLine("Kies een lijst:");
+
+            for (int i = 0; i < afspeellijsten.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + afspeellijsten[i].TitelAfspeelijst);
+            }
+
+            int keuze = int.Parse(Console.ReadLine());
+            Afspeelijst gekozen = afspeellijsten[keuze - 1];
+
+            if (gekozen.Nummers.Count == 0)
             {
                 Console.WriteLine("De afspeellijst is leeg.");
                 return;
             }
 
-            Console.WriteLine("Afspeellijst gestart: " + afspeelijst.TitelAfspeelijst);
-            Console.WriteLine();
-
-            foreach (Nummer nummer in afspeelijst.Nummers)
+            foreach (Nummer nummer in gekozen.Nummers)
             {
                 Console.WriteLine("Speelt: " + nummer.Titel +
                                   " Van " + nummer.Artiest +
