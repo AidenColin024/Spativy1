@@ -31,14 +31,7 @@ List<Artiest> artiesten = new List<Artiest>();
 artiesten.Add(new Artiest("Kendrick Lamar"));
 artiesten.Add(new Artiest("Kanye West"));
 
-Afspeelijst afspeelijst1 = new Afspeelijst(
-    "Favorieten",
-    "Hoofdgebruiker",
-    new List<Nummer> { nummer1, nummer3 }
-);
-
 List<Afspeelijst> afspeellijsten = new List<Afspeelijst>();
-afspeellijsten.Add(afspeelijst1);
 
 Client client = new Client();
 
