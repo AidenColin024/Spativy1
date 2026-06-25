@@ -40,7 +40,7 @@ namespace Spativy
         }
 
 
-        public void InputGever(List<Nummer> nummers, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst)
+        public void InputGever(List<Nummer> nummers, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst, List<Gebruiker> gebruikers)
         {
             String input = "";
 
@@ -58,6 +58,7 @@ namespace Spativy
                 Console.WriteLine("Druk op 9 om een nummer aan een lijst toe te voegen.\n");
                 Console.WriteLine("Druk op 10 om een nummer te verwijderen.\n");
                 Console.WriteLine("Druk op 11 om een afspeellijst af te spelen.\n");
+                Console.WriteLine("Druk op 12 om andere gebruikers te zien.\n");
                 Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
@@ -122,6 +123,10 @@ namespace Spativy
                     {
                         Console.WriteLine("Er zijn geen afspeellijsten.");
                     }
+                }
+                else if (input == "12")
+                {
+                        GebruikerInzien(gebruikers);
                 }
             }
         }
@@ -340,5 +345,22 @@ namespace Spativy
             Console.WriteLine();
             Console.WriteLine("Afspeellijst afgelopen.");
         }
+
+        public void GebruikerInzien(List <Gebruiker> gebruikers)
+        {
+            if (gebruikers.Count == 0)
+            {
+                Console.WriteLine("Er zijn geen gebruikers.");
+                return;
+            }
+
+            foreach (Gebruiker gebruiker in gebruikers)
+            {
+                Console.WriteLine("Gebruiker: " + gebruiker.NaamGebruiker);
+            }
+
+            Console.WriteLine();
+        }
     }
+
 }
