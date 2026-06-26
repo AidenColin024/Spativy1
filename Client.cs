@@ -60,6 +60,7 @@ namespace Spativy
                 Console.WriteLine("Druk op 11 om een afspeellijst af te spelen.\n");
                 Console.WriteLine("Druk op 12 om andere gebruikers te zien.\n");
                 Console.WriteLine("Druk op 13 om een gebruiker toe te voegen.\n");
+                Console.WriteLine("Druk op 14 om een vriend te verwijderen\n");
                 Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
@@ -132,6 +133,10 @@ namespace Spativy
                 else if (input == "13")
                 {
                     GebruikersToevoegen(gebruikers, hoofdgebruiker);
+                }
+                else if (input == "14")
+                {
+                    GebruikerVerwijderen(hoofdgebruiker);
                 }
             }
         }
@@ -389,6 +394,30 @@ namespace Spativy
             hoofdgebruiker.Vrienden.Add(gekozenGebruiker);
 
             Console.WriteLine("Gebruiker toegevoegd.");
+        }
+
+        public void GebruikerVerwijderen(Gebruiker hoofdgebruiker)
+        {
+            if (hoofdgebruiker.Vrienden.Count == 0)
+            {
+                Console.WriteLine("Er staan geen vriende in je vriendelijst.");
+                return;
+            }
+
+            Console.WriteLine("Kies een vriend om te verwijderen:");
+
+            for (int i = 0; i < hoofdgebruiker.Vrienden.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + hoofdgebruiker.Vrienden[i].NaamGebruiker);
+            }
+
+            int keuzeLijst = int.Parse(Console.ReadLine());
+
+            Gebruiker gekozengebruiker = hoofdgebruiker.Vrienden[keuzeLijst - 1];
+
+            hoofdgebruiker.Vrienden.Remove(gekozengebruiker);
+
+            Console.WriteLine("Je vriend is verwijderd.");
         }
     }
 
