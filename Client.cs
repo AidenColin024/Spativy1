@@ -40,7 +40,7 @@ namespace Spativy
         }
 
 
-        public void InputGever(List<Nummer> nummers, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst, List<Gebruiker> gebruikers)
+        public void InputGever(List<Nummer> nummers, List<Album> albums, List<Artiest> artiesten, List<Afspeelijst> afspeelijst, List<Gebruiker> gebruikers, Gebruiker hoofdgebruiker)
         {
             String input = "";
 
@@ -59,6 +59,7 @@ namespace Spativy
                 Console.WriteLine("Druk op 10 om een nummer te verwijderen.\n");
                 Console.WriteLine("Druk op 11 om een afspeellijst af te spelen.\n");
                 Console.WriteLine("Druk op 12 om andere gebruikers te zien.\n");
+                Console.WriteLine("Druk op 13 om een gebruiker toe te voegen.\n");
                 Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
@@ -126,7 +127,11 @@ namespace Spativy
                 }
                 else if (input == "12")
                 {
-                        GebruikerInzien(gebruikers);
+                    GebruikerInzien(gebruikers);
+                }
+                else if (input == "13")
+                {
+                    GebruikersToevoegen(gebruikers, hoofdgebruiker);
                 }
             }
         }
@@ -360,6 +365,30 @@ namespace Spativy
             }
 
             Console.WriteLine();
+        }
+
+        public void GebruikersToevoegen(List<Gebruiker> gebruikers, Gebruiker hoofdgebruiker)
+        {
+            if (gebruikers.Count == 0)
+            {
+                Console.WriteLine("Er zijn geen gebruikers");
+                return;
+            }
+
+            Console.WriteLine("Kies een gebruiker om toe te voegen:");
+
+            for (int i = 0; i < gebruikers.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + gebruikers[i].NaamGebruiker);
+            }
+
+            int ToevoegenGebruiker = int.Parse(Console.ReadLine());
+
+            Gebruiker gekozenGebruiker = gebruikers[ToevoegenGebruiker - 1];
+
+            hoofdgebruiker.Vrienden.Add(gekozenGebruiker);
+
+            Console.WriteLine("Gebruiker toegevoegd.");
         }
     }
 

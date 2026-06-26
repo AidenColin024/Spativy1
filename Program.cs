@@ -36,6 +36,7 @@ List<Afspeelijst> afspeellijsten = new List<Afspeelijst>();
 Gebruiker gebruiker1 = new Gebruiker("test gebruiker", nummers, albums, afspeellijsten);
 Gebruiker gebruiker2 = new Gebruiker("Aleks", nummers, albums, afspeellijsten);
 Gebruiker gebruiker3 = new Gebruiker("Tester3", nummers, albums, afspeellijsten);
+Gebruiker hoofdgebruiker = gebruiker1;
 List<Gebruiker> gebruikers = new List<Gebruiker>();
 gebruikers.Add(gebruiker1);
 gebruikers.Add(gebruiker2);
@@ -44,4 +45,4 @@ gebruikers.Add(gebruiker3);
 
 Client client = new Client();
 
-client.InputGever(nummers, albums, artiesten, afspeellijsten, gebruikers);
+client.InputGever(nummers, albums, artiesten, afspeellijsten, gebruikers, hoofdgebruiker);

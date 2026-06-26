@@ -10,13 +10,14 @@ namespace Spativy
         public List<Nummer> Nummers { get; set; }
         public List<Album> Albums { get; set; }
         public List<Afspeelijst> Afspeellijsten { get; set; }
+        public List<Gebruiker> Vrienden {  get; set; }
     public Gebruiker(String naamgebruiker, List<Nummer> nummers, List<Album> albums, List<Afspeelijst> afspeellijsten)
         {
             NaamGebruiker = naamgebruiker;
             Nummers = nummers;
             Albums = albums;
             Afspeellijsten = afspeellijsten;
-
+            Vrienden = new List<Gebruiker>();
 
         }
     }
