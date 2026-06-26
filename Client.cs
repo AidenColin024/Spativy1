@@ -62,6 +62,7 @@ namespace Spativy
                 Console.WriteLine("Druk op 13 om een gebruiker toe te voegen.\n");
                 Console.WriteLine("Druk op 14 om een vriend te verwijderen\n");
                 Console.WriteLine("Druk op 15 om je vriendenlijst te zien\n");
+                Console.WriteLine("Druk op 16 om de afspeelijsten van je vrienden te zien\n");
                 Console.WriteLine("Druk op 0 om af te sluiten.\n");
 
                 input = Console.ReadLine();
@@ -142,6 +143,11 @@ namespace Spativy
                 else if (input == "15")
                 {
                     VriendenInzien(hoofdgebruiker);
+                }
+
+                else if (input == "16")
+                {
+                    AfspeelijstVanVriend(hoofdgebruiker);
                 }
             }
         }
@@ -439,6 +445,48 @@ namespace Spativy
             }
 
             Console.WriteLine();
+        }
+
+        public void AfspeelijstVanVriend(Gebruiker hoofdgebruiker)
+        {
+            if (hoofdgebruiker.Vrienden.Count == 0)
+            {
+                Console.WriteLine("Je hebt geen vrienden");
+                return;
+            }
+
+            Console.WriteLine("Kies een vriend:");
+
+            for (int i = 0; i < hoofdgebruiker.Vrienden.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + hoofdgebruiker.Vrienden[i].NaamGebruiker);
+            }
+
+            int keuzeVriend = int.Parse(Console.ReadLine());
+
+            Gebruiker gekozenVriend = hoofdgebruiker.Vrienden[keuzeVriend - 1];
+
+            if (gekozenVriend.Afspeellijsten.Count == 0)
+            {
+                Console.WriteLine(gekozenVriend.NaamGebruiker + " heeft geen speellijsten.");
+                return;
+            }
+
+            Console.WriteLine("Kies een afspeellijst:");
+
+            for (int i = 0; i < gekozenVriend.Afspeellijsten.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + gekozenVriend.Afspeellijsten[i].TitelAfspeelijst);
+            }
+
+            int keuzeAfspeelijst = int.Parse(Console.ReadLine());
+
+            Afspeelijst gekozenAfspeelijst = gekozenVriend.Afspeellijsten[keuzeAfspeelijst - 1];
+
+            foreach (Nummer nummer in gekozenAfspeelijst.Nummers)
+            {
+                Console.WriteLine(nummer.Titel);
+            }
         }
     }
 

@@ -34,15 +34,19 @@ artiesten.Add(new Artiest("Kanye West"));
 List<Afspeelijst> afspeellijsten = new List<Afspeelijst>();
 
 Gebruiker gebruiker1 = new Gebruiker("test gebruiker", nummers, albums, afspeellijsten);
-Gebruiker gebruiker2 = new Gebruiker("Aleks", nummers, albums, afspeellijsten);
-Gebruiker gebruiker3 = new Gebruiker("Tester3", nummers, albums, afspeellijsten);
+Gebruiker gebruiker2 = new Gebruiker("Aleks", nummers, albums, new List<Afspeelijst>());
+Gebruiker gebruiker3 = new Gebruiker("Tester3", nummers, albums, new List<Afspeelijst>());
+
+
 Gebruiker hoofdgebruiker = gebruiker1;
 List<Gebruiker> gebruikers = new List<Gebruiker>();
 gebruikers.Add(gebruiker1);
 gebruikers.Add(gebruiker2);
 gebruikers.Add(gebruiker3);
-
-
+Afspeelijst afspeelijstAleks = new Afspeelijst("Aleks zijn lijst", gebruiker2.NaamGebruiker, new List<Nummer> { nummer3, nummer4 });
+gebruiker2.Afspeellijsten.Add(afspeelijstAleks);
+Afspeelijst afspeelijstTester3 = new Afspeelijst("Good vibes", gebruiker3.NaamGebruiker, new List<Nummer> { nummer1, nummer2});
+gebruiker3.Afspeellijsten.Add(afspeelijstTester3);
 Client client = new Client();
 
 client.InputGever(nummers, albums, artiesten, afspeellijsten, gebruikers, hoofdgebruiker);
