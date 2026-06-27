@@ -97,10 +97,7 @@ namespace Spativy
                 }
                 else if (input == "6")
                 {
-                    foreach (Artiest artiest in artiesten)
-                    {
-                        Console.WriteLine(artiest.Naam);
-                    }
+                    InzienArtiesten(artiesten);
                 }
                 else if (input == "7")
                 {
@@ -190,9 +187,23 @@ namespace Spativy
             foreach (Artiest artiest in artiesten)
             {
                 Console.WriteLine("Artiest: " + artiest.Naam);
-            }
+                foreach (Album album in artiest.Albums)
+                {
+                    Console.WriteLine("Albums:\n "+ album.Titel);
 
-            Console.WriteLine();
+                    foreach (Nummer nummer in album.Nummers)
+                    {
+                        Console.WriteLine("- " + nummer.Titel);
+                    }
+                }
+
+                foreach (Nummer nummer in artiest.Nummers)
+                {
+                    Console.WriteLine("Singels:\n " + "- " + nummer.Titel);
+                }
+
+                Console.WriteLine();
+            }
         }
 
         public void SpeelAlbum(Album album)
